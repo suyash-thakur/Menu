@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Dashboard</span>
+  </mat-toolbar-row>
+  </mat-toolbar>
+<div style="padding: 10px;">
+  <h1>Starters</h1>
+  <div class="example-container">
+      <section *ngFor="let dish of StarterData; let i = index;">
+    <mat-form-field >
+      <mat-label>Name Of Dish</mat-label>
+      <input matInput placeholder="Name of Dish" [(ngModel)]="dish.name">
+    </mat-form-field>&nbsp;
+    <mat-form-field >
+      <mat-label>Price</mat-label>
+      <input matInput placeholder="Price" [(ngModel)]="dish.price" name="dish_{{ i }}">
+    </mat-form-field> &nbsp;
+    <button mat-raised-button color="primary" (click)="addStarters()">Add</button> &nbsp;
+    <button mat-raised-button color="accent" (click)="removeStarter(i)">Remove</button>
+
+  </section>
+  <button mat-raised-button (click)="update()">Update</button>
+</div>
+</div>
+<div style="padding: 10px;">
+  <h1>Veg</h1>
+  <div class="example-container">
+      <section *ngFor="let dish of Veg; let i = index;">
+    <mat-form-field >
+      <mat-label>Name Of Dish</mat-label>
+      <input matInput placeholder="Name of Dish" [(ngModel)]="dish.name">
+    </mat-form-field>&nbsp;
+    <mat-form-field >
+      <mat-label>Price</mat-label>
+      <input matInput placeholder="Price" [(ngModel)]="dish.price" name="dish_{{ i }}">
+    </mat-form-field> &nbsp;
+    <button mat-raised-button color="primary" (click)="addVeg()">Add</button> &nbsp;
+    <button mat-raised-button color="accent" (click)="removeVeg(i)">Remove</button>
+
+  </section>
+  <button mat-raised-button (click)="vegUpdate()">Update</button>
+</div>
+</div>
