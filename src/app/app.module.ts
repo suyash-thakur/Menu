@@ -13,13 +13,21 @@ import { MatRadioModule } from '@angular/material/radio';
 import { DdashboardComponent } from './ddashboard/ddashboard.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { from } from 'rxjs';
+import { AuthComponent } from './auth/auth.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DdashboardComponent
+    DdashboardComponent,
+    AuthComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +38,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
   MatSidenavModule, MatIconModule, MatListModule, MatCardModule,
   MatTabsModule, MatInputModule, MatSnackBarModule, MatProgressSpinnerModule, MatToolbarModule, MatRadioModule, MatStepperModule,FormsModule,
   MatTooltipModule,
+  AngularFireAuthModule,
   ReactiveFormsModule,
   AngularFireModule.initializeApp(environment.firebaseConfig),
-  AngularFireDatabaseModule
+  AngularFireDatabaseModule, AngularFireStorageModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

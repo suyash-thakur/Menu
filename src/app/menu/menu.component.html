@@ -1,0 +1,84 @@
+<div style="margin-top: -20px; height: 100%;">
+  <div style="background-color: #1F2536; color: white; padding-top: 15px; padding-bottom: 5px;">
+  <h1 style="padding-left: 15px;">{{ this.resname.name }}</h1>
+</div>
+<div style="background-color: #E6FAF5; height: 100%; color: #003539;">
+  <br>
+  <br>
+  <div>
+  <h1 style="padding-left: 15px;">Starters</h1>
+  <ul>
+    <div style="display: flex;">
+      <div style="flex: 1; font-weight: bold;">
+       Name
+      </div>
+
+      <div style="flex: 1; font-weight: bold;">
+      Price
+      </div>
+    </div>
+    <li *ngFor="let item of starters">
+      <div style="display: flex;">
+        <div style="flex: 1; ">
+          {{ item.name }}
+        </div>
+
+        <div style="flex: 1;">
+          {{ item.price }}
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div >
+  <h1 style="padding-left: 15px;">Veg</h1>
+  <ul>
+    <div style="display: flex;">
+      <div style="flex: 1; font-weight: bold;">
+       Name
+      </div>
+
+      <div style="flex: 1; font-weight: bold;">
+        Price
+      </div>
+    </div>
+    <li *ngFor="let item of veg">
+      <div style="display: flex;">
+        <div style="flex: 1;">
+          {{ item.name }}
+        </div>
+
+        <div style="flex: 1;">
+          {{ item.price }}
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div >
+  <h1 style="padding-left: 15px;">Non-Veg</h1>
+  <ul>
+    <div style="display: flex; font-weight: bold;">
+      <div style="flex: 1;">
+       Name
+      </div>
+
+      <div style="flex: 1; font-weight: bold;">
+        Price
+      </div>
+    </div>
+    <li *ngFor="let item of nonveg">
+      <div style="display: flex;">
+        <div style="flex: 1;">
+          {{ item.name }}
+        </div>
+
+        <div style="flex: 1;">
+          {{ item.price }}
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+</div>

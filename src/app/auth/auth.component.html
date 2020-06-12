@@ -1,0 +1,33 @@
+<h1>Sign Up</h1>
+<mat-form-field class="example-full-width">
+  <mat-label>Restaurnt Name</mat-label>
+  <input matInput [(ngModel)]="restaurantName">
+</mat-form-field>
+<br>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="emailSignup">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="passwordSignup">
+  </mat-form-field>
+  <br>
+  <label for="file">Upload Menu:</label><br><br>
+<input  type="file" (change)="upload($event)" accept=".png,.jpg" />
+<br>
+<progress max="100" [value]="(uploadProgress | async)"></progress>
+<br>
+<br>
+  <button mat-raised-button (click)="onSignup()" >Sign up</button>
+  <h1>Log In</h1>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="email">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="password">
+  </mat-form-field>
+  <button mat-raised-button (click)="onLogin()" >Sign up</button>

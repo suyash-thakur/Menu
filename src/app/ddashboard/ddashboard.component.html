@@ -15,11 +15,11 @@
       <mat-label>Price</mat-label>
       <input matInput placeholder="Price" [(ngModel)]="dish.price" name="dish_{{ i }}">
     </mat-form-field> &nbsp;
-    <button mat-raised-button color="primary" (click)="addStarters()">Add</button> &nbsp;
-    <button mat-raised-button color="accent" (click)="removeStarter(i)">Remove</button>
+    <button mat-raised-button color="primary" (click)="addStarters()" *ngIf="i == StarterData.length - 1">Add</button> &nbsp;
+    <button mat-raised-button color="accent" (click)="removeStarter(i)" *ngIf="i !== StarterData.length - 1">Remove</button>
 
   </section>
-  <button mat-raised-button (click)="update()">Update</button>
+  <button mat-raised-button (click)="createDish()">Update</button>
 </div>
 </div>
 <div style="padding: 10px;">
@@ -34,10 +34,29 @@
       <mat-label>Price</mat-label>
       <input matInput placeholder="Price" [(ngModel)]="dish.price" name="dish_{{ i }}">
     </mat-form-field> &nbsp;
-    <button mat-raised-button color="primary" (click)="addVeg()">Add</button> &nbsp;
-    <button mat-raised-button color="accent" (click)="removeVeg(i)">Remove</button>
+    <button mat-raised-button color="primary" (click)="addVeg()" *ngIf="i == Veg.length - 1">Add</button> &nbsp;
+    <button mat-raised-button color="accent" (click)="removeVeg(i)" *ngIf="i !== Veg.length - 1">Remove</button>
 
   </section>
   <button mat-raised-button (click)="vegUpdate()">Update</button>
+</div>
+</div>
+<div style="padding: 10px;">
+  <h1>Non-Veg</h1>
+  <div class="example-container">
+      <section *ngFor="let dish of nonveg; let i = index;">
+    <mat-form-field >
+      <mat-label>Name Of Dish</mat-label>
+      <input matInput placeholder="Name of Dish" [(ngModel)]="dish.name">
+    </mat-form-field>&nbsp;
+    <mat-form-field >
+      <mat-label>Price</mat-label>
+      <input matInput placeholder="Price" [(ngModel)]="dish.price" name="dish_{{ i }}">
+    </mat-form-field> &nbsp;
+    <button mat-raised-button color="primary" (click)="addNonveg()" *ngIf="i == nonveg.length - 1">Add</button> &nbsp;
+    <button mat-raised-button color="accent" (click)="removenonVeg(i)" *ngIf="i !== nonveg.length - 1">Remove</button>
+
+  </section>
+  <button mat-raised-button (click)="nonvegUpdate()">Update</button>
 </div>
 </div>
