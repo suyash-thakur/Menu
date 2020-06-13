@@ -21,13 +21,15 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { from } from 'rxjs';
 import { AuthComponent } from './auth/auth.component';
 import { MenuComponent } from './menu/menu.component';
+import { DashboardFreeComponent } from './dashboard-free/dashboard-free.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DdashboardComponent,
     AuthComponent,
-    MenuComponent
+    MenuComponent,
+    DashboardFreeComponent
   ],
   imports: [
     BrowserModule,

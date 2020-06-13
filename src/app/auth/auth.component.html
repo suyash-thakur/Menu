@@ -14,11 +14,14 @@
     <input matInput [(ngModel)]="passwordSignup">
   </mat-form-field>
   <br>
-  <label for="file">Upload Menu:</label><br><br>
-<input  type="file" (change)="upload($event)" accept=".png,.jpg" />
-<br>
-<progress max="100" [value]="(uploadProgress | async)"></progress>
-<br>
+  <section class="example-section">
+    <label class="example-margin">Plan:</label> <br> <br>
+    <mat-radio-group [(ngModel)]="plan">
+      <mat-radio-button  value="free">Free</mat-radio-button> &nbsp;
+      <mat-radio-button  value="paid">Paid</mat-radio-button>
+    </mat-radio-group>
+  </section>
+
 <br>
   <button mat-raised-button (click)="onSignup()" >Sign up</button>
   <h1>Log In</h1>

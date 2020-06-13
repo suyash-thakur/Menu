@@ -28,15 +28,29 @@ export class DdashboardComponent implements OnInit {
 
   ngOnInit() {
    const userId =  this.route.snapshot.paramMap.get('id');
-
     this.firestore.collection('menu').doc(userId).get().subscribe(res => {
-     if(res.exists) {
-       const data = res.data();
-       console.log(data);
-     } else {
-       console.log('no document');
-     }
-    });
+      if(res.exists) {
+        const data = res.data();
+        console.log(data);
+        if(data.starters != null)  {
+          this.StarterData = data.starters;
+          this.addStarters();
+        }
+        if (data.veg != null) {
+          this.Veg = data.veg;
+          this.addVeg();
+        }
+       if (data.nonveg != null) {
+        this.nonveg = data.nonVeg;
+        this.addNonveg();
+       }
+
+      } else {
+        console.log('no document');
+      }
+     });   //<<<---    using ()=> syntax
+
+
   }
   logValue() {
     console.log("clicked");

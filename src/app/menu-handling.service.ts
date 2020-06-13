@@ -11,17 +11,22 @@ import { first, tap } from 'rxjs/operators';
 export class MenuHandlingService {
   user: any;
   selectedImage: any = null;
-  constructor(public afs: AngularFirestore, public afAuth: AngularFireAuth, public router: Router, private firestore: AngularFirestore, private storage: AngularFirestore) { }
+  authState: any;
+  resturant: any;
+  constructor(public afs: AngularFirestore, public afAuth: AngularFireAuth, public router: Router, private firestore: AngularFirestore, private storage: AngularFirestore) {
+
+  }
 
   SignIn(email, password) {
-    return this.afAuth.signInWithEmailAndPassword(email, password).then(result => {
+     this.afAuth.signInWithEmailAndPassword(email, password).then(result => {
       this.user = result;
       console.log(this.user);
       this.router.navigate(['dashboard', this.user.user.uid]);
 
     });
+
   }
-  SignUp(email, password, name) {
+  SignUp(email, password, name, plan) {
      this.afAuth.createUserWithEmailAndPassword(email, password).then(result => {
       this.user = result;
       console.log(this.user);
@@ -34,7 +39,8 @@ export class MenuHandlingService {
         console.log(result);
       });
       this.firestore.collection("resturant").doc(this.user.user.uid).set({
-        name: name
+        name: name,
+        plan: plan
       }).then(result => {
         console.log(result);
       });
