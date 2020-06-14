@@ -45,5 +45,8 @@ export class DashboardFreeComponent implements OnInit {
     });
 
   }
+  nav() {
+    this.router.navigate(['/menuImg', this.userId] );
+  }
 
 }

@@ -22,6 +22,7 @@ import { from } from 'rxjs';
 import { AuthComponent } from './auth/auth.component';
 import { MenuComponent } from './menu/menu.component';
 import { DashboardFreeComponent } from './dashboard-free/dashboard-free.component';
+import { MenuFreeComponent } from './menu-free/menu-free.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DashboardFreeComponent } from './dashboard-free/dashboard-free.componen
     DdashboardComponent,
     AuthComponent,
     MenuComponent,
-    DashboardFreeComponent
+    DashboardFreeComponent,
+    MenuFreeComponent
   ],
   imports: [
     BrowserModule,

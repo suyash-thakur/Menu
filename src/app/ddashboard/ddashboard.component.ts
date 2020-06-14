@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { Dish } from  '../dish.model';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import * as firebase from 'firebase/app';
 import { MenuHandlingService } from '../menu-handling.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ddashboard',
@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DdashboardComponent implements OnInit {
   items: any;
-
+  userId: any;
   StarterData: Array<any> = [{
     name: '', price: '',
   }];
@@ -24,11 +24,11 @@ export class DdashboardComponent implements OnInit {
   nonveg: Array<any> = [{
     name: '', price: ''
   }];
-  constructor(private firestore: AngularFirestore, public menuHandling: MenuHandlingService, private route: ActivatedRoute) { }
+  constructor(private firestore: AngularFirestore, public menuHandling: MenuHandlingService, private route: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
-   const userId =  this.route.snapshot.paramMap.get('id');
-    this.firestore.collection('menu').doc(userId).get().subscribe(res => {
+   this.userId =  this.route.snapshot.paramMap.get('id');
+    this.firestore.collection('menu').doc(this.userId).get().subscribe(res => {
       if(res.exists) {
         const data = res.data();
         console.log(data);
@@ -119,4 +119,8 @@ export class DdashboardComponent implements OnInit {
     });
     console.log("updated");
 }
+nav() {
+  this.router.navigate(['/menu', this.userId] );
+}
+
 }
