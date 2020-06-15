@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import * as firebase from 'firebase/app';
 import { MenuHandlingService } from '../menu-handling.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-ddashboard',
@@ -24,7 +25,7 @@ export class DdashboardComponent implements OnInit {
   nonveg: Array<any> = [{
     name: '', price: ''
   }];
-  constructor(private firestore: AngularFirestore, public menuHandling: MenuHandlingService, private route: ActivatedRoute, public router: Router) { }
+  constructor(private firestore: AngularFirestore, public afAuth: AngularFireAuth, public menuHandling: MenuHandlingService, private route: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
    this.userId =  this.route.snapshot.paramMap.get('id');
@@ -123,4 +124,9 @@ nav() {
   this.router.navigate(['/menu', this.userId] );
 }
 
+SignOut() {
+  return this.afAuth.signOut().then(() => {
+    this.router.navigate(['/']);
+  });
+}
 }

@@ -21,8 +21,16 @@ export class MenuHandlingService {
      this.afAuth.signInWithEmailAndPassword(email, password).then(result => {
       this.user = result;
       console.log(this.user);
-      this.router.navigate(['dashboard', this.user.user.uid]);
+      this.firestore.collection('resturant').doc(this.user.user.uid).get().subscribe(res => {
+        this.resturant = res.data();
+        console.log(this.resturant);
+        if (this.resturant.plan == "free") {
+          this.router.navigate(['dash', this.user.user.uid]);
+        } else {
+          this.router.navigate(['dashboard', this.user.user.uid]);
 
+        }
+    });
     });
 
   }
@@ -56,7 +64,7 @@ export class MenuHandlingService {
     this.isLoggedin().pipe(tap(user => {
       if (user) {
         console.log(user);
-        this.router.navigate(['dashboard', this.user.user.uid]);
+        // this.router.navigate(['dashboard', this.user.user.uid]);
 
       } else  {
         console.log("not logged in");

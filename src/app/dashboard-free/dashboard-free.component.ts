@@ -48,5 +48,9 @@ export class DashboardFreeComponent implements OnInit {
   nav() {
     this.router.navigate(['/menuImg', this.userId] );
   }
-
+  SignOut() {
+    return this.afAuth.signOut().then(() => {
+      this.router.navigate(['/']);
+    });
+  }
 }

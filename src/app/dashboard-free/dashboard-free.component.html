@@ -1,5 +1,5 @@
 <div *ngIf="downloadURL != undefined">
-  <img [src]="downloadURL" style="width: 200px;">
+  <!-- <img [src]="downloadURL" style="width: 200px;"> -->
 </div>
 <label for="file">Upload Menu:</label><br><br>
 <input  type="file" (change)="upload($event)" accept=".png,.jpg" />
@@ -7,3 +7,4 @@
 <progress max="100" [value]="(uploadProgress | async)"></progress>
 <br>
 <button mat-button (click)="nav()"> View Menu</button>
+<button mat-button (click)="SignOut()"> Sign-out</button>
